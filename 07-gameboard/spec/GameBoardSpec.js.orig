@@ -58,10 +58,12 @@
 */
 
 describe("GameBoard", function(){
-  
-   var canvas, ctx;
-   var board;
- //gameBoard;
+  it("GameBoard.TEST", function(){
+        expect("Hola").toBe("Hola");
+   });
+
+  var gameBoard;
+  var canvas, ctx;
 
     beforeEach(function(){
 	
@@ -72,43 +74,34 @@ describe("GameBoard", function(){
 
 	ctx = canvas.getContext('2d');
 	expect(ctx).toBeDefined();
-        board= new GameBoard();
-	//gameBoard = new GameBoard();
+        gameBoard= new GameBoard();	
     });
 
-        it("GameBoard.add()", function(){
-               
-               var objetoVacio= {};
-               var objeto2= board.add(objetoVacio);
-               expect(board.objects[0]).toBe(objetoVacio);
-               expect(objeto2.board).toBe(board);
-       });
-
-
-   /*  it("GameBoard.add()", function(){
-        var emptyObject= {};
-        var object2= gameBoard.add(emptyObject);
-        expect(gameBoard.objects[0]).toBe(emptyObject);
-        expect(object2.gameBoard) .toBe(gameBoard);
     
+
+    it("GameBoard.add()", function(){
+        var EmptyObject= {};
+        var Object2= gameBoard.add(EmptyObject);
+        expect(Object2).toBe(EmptyObject);   
     });
 
 
-   it("GameBoard.step()", function(){
-        var obj1={"test":"sa"};
-        expect(gameBoard.step(obj1)).toBe("")
-    });*/
+    it("GameBoard.step()", function(){
+        var obj1={"test":"aa"};
+        expect(gameBoard.step(obj1)).toBe("");
+    });
 
 
 
-    /*it("GameBoard.detect()", function(){
-       gameBoard.objects=[{obj1:"hockey"},{obj1:"Tennis"}];
+    it("GameBoard.detect()", function(){
+       gameBoard.objects=[{obj1:"hockey"},{obj1:""}]
        var test= function(){
                 return this.obj1== "hockey";
         };
        expect(gameBoard.detect(test).toBe(gameBoard.objects[0])); 
 
-    });*/
+    });
 
 });
+
 

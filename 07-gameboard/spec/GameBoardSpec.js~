@@ -61,7 +61,6 @@ describe("GameBoard", function(){
   
    var canvas, ctx;
    var board;
- //gameBoard;
 
     beforeEach(function(){
 	
@@ -73,7 +72,7 @@ describe("GameBoard", function(){
 	ctx = canvas.getContext('2d');
 	expect(ctx).toBeDefined();
         board= new GameBoard();
-	//gameBoard = new GameBoard();
+	
     });
 
         it("GameBoard.add()", function(){

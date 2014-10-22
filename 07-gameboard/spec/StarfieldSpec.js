@@ -3,7 +3,7 @@
 // Usamos matchers de jasmine-jquery: https://github.com/velesin/jasmine-jquery
 //
 
-describe("Clase Starfield", function(){
+describe("Clase StarField", function(){
 
     var canvas, ctx;
 
