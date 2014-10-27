@@ -132,17 +132,32 @@ describe("GameBoard", function(){
                //expect(board.collide(referenceObject, collideObject2.type)).toBe(false); comprobar como funciona type
         });
 
- 
 
         it("GameBoard.iterate()", function(){
-               board.objects=[one:1,two:2]
-               var tester= function(){
-                       return
-               };
+               var test= {draw = function(){}; step = function(){}};
 
+               board.add(test);               
+
+               spyOn(board, "draw").andCallThrough();
+               spyOn(board, "step").andCallThrough();
+               
+               spyOn(board.objects[0],"draw");
+               spyOn(board.objects[0],"step");
+
+               Game.initialize("game", sprites, function(){});
+               Game.setBoard(1,board);
+               waits(120);
+
+               runs(function(){
+                       expect(board.draw).toHaveBeenCalled();
+                       expect(board.step).toHaveBeenCalled();
+                       expect(board.objects[0].draw).toHaveBeenCalled();
+                       expect(board.objects[0].step).toHaveBeenCalled();
+               });
         });
 
     
+ 
 /*
    it("GameBoard.step()", function(){
         var obj1={"test":"sa"};
