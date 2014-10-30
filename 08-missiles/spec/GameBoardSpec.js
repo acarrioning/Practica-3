@@ -66,13 +66,12 @@ describe("GameBoard", function(){
 
     beforeEach(function(){
 	
-	loadFixtures('index.html');
-        Game = oldGame;
+	loadFixtures('index.html');       
 	canvas = $('#game')[0];
 	expect(canvas).toExist();
 	ctx = canvas.getContext('2d');
 	expect(ctx).toBeDefined();
-
+        oldGame = Game;
         board= new GameBoard();
         
 	//gameBoard = new GameBoard();
@@ -81,7 +80,7 @@ describe("GameBoard", function(){
     });
 
     afterEach(function(){
-       oldGame = Game;
+       Game = oldGame;
     });
 
         it("GameBoard.add()", function(){

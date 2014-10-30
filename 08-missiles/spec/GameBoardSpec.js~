@@ -67,7 +67,7 @@ describe("GameBoard", function(){
     beforeEach(function(){
 	
 	loadFixtures('index.html');
-        //Game = oldGame;
+        Game = oldGame;
 	canvas = $('#game')[0];
 	expect(canvas).toExist();
 	ctx = canvas.getContext('2d');

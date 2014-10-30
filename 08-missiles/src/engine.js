@@ -207,9 +207,8 @@ var GameBoard = function() {
     // objetos de objects
     this.iterate = function(funcName) {
 	// Convertimos en un array args (1..)
-	/*var args = Array.prototype.slice.call(arguments,1);
-        
-        */this.objects.map(function(iterador){iterador.[funcName].apply(iterador,args));});
+	var args = Array.prototype.slice.call(arguments,1);
+
 	for(var i=0, len=this.objects.length; i<len;i++) {
 	    var obj = this.objects[i];
 	    obj[funcName].apply(obj,args)
@@ -218,13 +217,6 @@ var GameBoard = function() {
 
     // Devuelve el primer objeto de objects para el que func es true
     this.detect = function(func) {
-        /*var almacen_objetos = this.objects.filter(function(detector){if(func.call(detector))return detector;});
-
-        if(almacen_objetos[0] != ""){
-                return almacen_objetos[0];
-        }else{
-                return false;
-        */};
 	for(var i = 0,val=null, len=this.objects.length; i < len; i++) {
 	    if(func.call(this.objects[i])) return this.objects[i];
 	}

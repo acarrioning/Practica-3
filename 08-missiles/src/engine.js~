@@ -207,32 +207,28 @@ var GameBoard = function() {
     // objetos de objects
     this.iterate = function(funcName) {
 	// Convertimos en un array args (1..)
-	var args = Array.prototype.slice.call(arguments,1);
-
-        //this.objects.map(function(elemento){elemento[funcName].apply(elemento,args)});
-        this.objects.map(function(iterador){iterador[funcName].apply(iterador,args)});
-
-	/* for(var i=0, len=this.objects.length; i<len;i++) {
+	/*var args = Array.prototype.slice.call(arguments,1);
+        
+        */this.objects.map(function(iterador){iterador.[funcName].apply(iterador,args));});
+	for(var i=0, len=this.objects.length; i<len;i++) {
 	    var obj = this.objects[i];
 	    obj[funcName].apply(obj,args)
-	}*/
+	}
     };
 
     // Devuelve el primer objeto de objects para el que func es true
     this.detect = function(func) {
-        var almacen_objetos = this.objects.filter(function(detector){if(func.call(detector))return detector;});
+        /*var almacen_objetos = this.objects.filter(function(detector){if(func.call(detector))return detector;});
 
-        if(almacen_objetos.length > 0 ){
+        if(almacen_objetos[0] != ""){
                 return almacen_objetos[0];
         }else{
                 return false;
-        };
-
-/* 	for(var i = 0,val=null, len=this.objects.length; i < len; i++) {
+        */};
+	for(var i = 0,val=null, len=this.objects.length; i < len; i++) {
 	    if(func.call(this.objects[i])) return this.objects[i];
 	}
 	return false;
-*/
     };
 
     // Cuando Game.loop() llame a step(), hay que llamar al método
